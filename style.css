@@ -1,0 +1,185 @@
+body {
+  margin: 0;
+  height: 100%;
+}
+
+.backgroundHeader {
+  background-image: url("img/background1.jpg");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.nav-items {
+  font-size: 25px;
+}
+
+.img {
+  width: 200px;
+  height: 130px;
+  margin-left: 120px;
+  transition: transform 0.2s;
+}
+
+.img:hover {
+  transform: scale(1.08);
+}
+
+.navText {
+  transition: transform 0.2s;
+  margin-left: 25px;
+}
+
+.navText:hover {
+  transform: scale(1.15);
+}
+
+.headerText {
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 1000;
+  text-align: center;
+  font-size: 90px;
+  font-family: Hack, sans-serif;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #000, #fff, #000);
+  letter-spacing: 5px;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-repeat: no-repeat;
+  background-size: 80%;
+  animation: shine 5s linear infinite;
+  position: relative;
+}
+
+@keyframes shine {
+  0% {
+    background-position-x: -500%;
+  }
+
+  100% {
+    background-position-x: 500%;
+  }
+}
+
+.skills {
+  background-image: url(img/section\ skills.jpg);
+}
+
+.heading {
+  height: 30vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  text-align: center;
+  font-size: 50px;
+  color: white;
+}
+
+.footerHeader {
+  height: 30vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 200;
+  text-align: center;
+  font-size: 55px !important;
+  color: white;
+}
+
+.skillsText {
+  font-size: 25px;
+  color: white;
+  margin-bottom: 40px;
+}
+
+.projects {
+  background-image: url(img/projects1.jpg);
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.last {
+  margin-bottom: 80px;
+}
+
+.card {
+  color: white;
+}
+
+.card-link {
+  text-decoration: none;
+  color: #000;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.footer {
+  background-image: url(img/contact1.jpg);
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.text-center {
+  color: white;
+}
+
+.labelText {
+  font-weight: 800;
+}
+
+#message,
+#name,
+#subject,
+#email {
+  color: #fff;
+}
+
+.lastFooter {
+  margin-bottom: 110px;
+}
+
+.card {
+  box-shadow: 0 20px 30px rgb(76, 76, 75);
+  transition: transform 0.2s;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgb(218, 23, 121);
+}
+
+.btn {
+  width: 100px;
+  font-weight: 800;
+}
+
+.status {
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.linked {
+  text-decoration: none;
+  color: white;
+}
+
+.linked:hover {
+  color: rgb(218, 23, 121);
+}
