@@ -1,6 +1,9 @@
+html,
 body {
-  margin: 0;
-  height: 100%;
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
 }
 
 .backgroundHeader {
@@ -22,7 +25,7 @@ body {
 .img {
   width: 200px;
   height: 130px;
-  margin-left: 120px;
+  /*margin-left: 120px;*/
   transition: transform 0.2s;
 }
 
@@ -85,7 +88,7 @@ body {
   color: white;
 }
 
-.footerHeader {
+.footerHeading {
   height: 30vh;
   display: flex;
   align-items: center;
@@ -123,6 +126,10 @@ body {
   color: #000;
   font-size: 20px;
   font-weight: 600;
+}
+
+.TextContact {
+  font-size: 19px;
 }
 
 .footer {
@@ -180,6 +187,12 @@ body {
   color: white;
 }
 
-.linked:hover {
+.linked:hover,
+.phone:hover,
+.email:hover {
   color: rgb(218, 23, 121);
+}
+.phone {
+  text-decoration: none;
+  color: white;
 }

@@ -1,34 +1,48 @@
 <?php
-$name = $_POST['name'];
-$email = $_POST['email'];
-$message = $_POST['message'];
-$subject = $_POST['subject'];
-header('Content-Type: application/json');
-if ($name === ''){
-  print json_encode(array('message' => 'Name cannot be empty', 'code' => 0));
-  exit();
-}
-if ($email === ''){
-  print json_encode(array('message' => 'Email cannot be empty', 'code' => 0));
-  exit();
-} else {
-  if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
-  print json_encode(array('message' => 'Email format invalid.', 'code' => 0));
-  exit();
-  }
-}
-if ($subject === ''){
-  print json_encode(array('message' => 'Subject cannot be empty', 'code' => 0));
-  exit();
-}
-if ($message === ''){
-  print json_encode(array('message' => 'Message cannot be empty', 'code' => 0));
-  exit();
-}
-$content="From: $name \nEmail: $email \nMessage: $message";
-$recipient = "nati.socha89@gmail.com";
-$mailheader = "From: $email \r\n";
-mail($recipient, $subject, $content, $mailheader) or die("Error!");
-print json_encode(array('message' => 'Email successfully sent!', 'code' => 1));
-exit();
+
+$errors = [];
+$errorMessage = '';
+
+if (!empty($_POST)) {
+   $name = $_POST['name'];
+   $email = $_POST['email'];
+   $message = $_POST['message'];
+
+   if (empty($name)) {
+       $errors[] = 'Name cannot be empty';
+   }
+
+   if (empty($email)) {
+       $errors[] = 'Email cannot be empty';
+   } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+       $errors[] = 'Email is invalid';
+   }
+
+   if (empty($message)) {
+       $errors[] = 'Message cannot be empty';
+   }
+
+   if (empty($errors)) {
+       $toEmail = 'nati.socha89@gmail.com';
+       $emailSubject = 'New email from your contact form';
+       $headers = ['From' => $email, 'Reply-To' => $email, 'Content-type' => 'text/html; charset=utf-8'];
+       $bodyParagraphs = ["Name: {$name}", "Email: {$email}", "Message:", $message];
+       $body = join(PHP_EOL, $bodyParagraphs);
+
+       if (mail($toEmail, $emailSubject, $body, $headers)) 
+       
+           header('Location: index.html');
+          
+
+       } else {
+           $errorMessage = 'Oops, something went wrong. Please try again later';
+       }
+
+   } else {
+
+       $allErrors = join('<br/>', $errors);
+       $errorMessage = "<p style='color: red;'>{$allErrors}</p>";
+   }
+
+
 ?>
